@@ -3,8 +3,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DataSource } from 'typeorm';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { TodoListController } from './todo-list/todo-list.controller';
 import { TodoListModule } from './todo-list/todo-list.module';
+import {TodoList} from './todo-list/todo-list.entity';
 
 @Module({
   imports: [    TypeOrmModule.forRoot({
@@ -13,11 +13,11 @@ import { TodoListModule } from './todo-list/todo-list.module';
     port: 3306,
     username: 'root',
     password: '',
-    database: 'users',
-    entities: [],
+    database: 'todolist',
+    entities: [TodoList],
     synchronize: true,
-  }),, TodoListModule ,],
-  controllers: [AppController, TodoListController],
+  }), TodoListModule],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {
