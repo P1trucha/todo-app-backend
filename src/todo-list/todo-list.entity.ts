@@ -1,23 +1,23 @@
-import { Entity, Column, CreateDateColumn, PrimaryColumn } from 'typeorm';
+import { Entity, Column, CreateDateColumn, PrimaryGeneratedColumn } from 'typeorm';
 
 
 @Entity()
 export class TodoList {
-    @PrimaryColumn("uuid")
+    @PrimaryGeneratedColumn("uuid")
     id: string;
 
     @Column({ length: 50 })
     title: string;
 
-    @Column({length:500})
-    description:string;
+    @Column({ length: 500 })
+    description: string;
 
     @CreateDateColumn()
-    createdAt:Date;
+    createdAt: Date;
 
-    @Column({nullable:true})
-    isCompleted:boolean;
+    @Column({ nullable: true })
+    isCompleted: boolean;
 
- 
-    
+
+
 }
